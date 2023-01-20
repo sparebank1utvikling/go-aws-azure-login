@@ -164,7 +164,7 @@ func load(pathType PathType) *ini.File {
 		os.Exit(1)
 	}
 
-	cfg, err := ini.Load(p)
+	cfg, err := ini.LoadSources(ini.LoadOptions{IgnoreInlineComment: true}, p)
 	if err != nil {
 		fmt.Printf("Fail to read file: %v", err)
 		os.Exit(1)
